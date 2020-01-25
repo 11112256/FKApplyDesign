@@ -55,11 +55,16 @@ public class board  {
  }
 
 
-   public boolean isValid(int board[][],int i , int j , int value){
+   public boolean isValid(board b,int i , int j , int value){
 
-       if(board[i][j]!=0 && i<0 && j >board.length)
+       //System.out.println(b.gameboard[i][j]!=0);
+
+       //System.out.println((b.gameboard[i][j] !=0  && i<0 && j >b.gameboard.length) + "checking" + i+ " "+j);
+       if( b.gameboard[i][j] != 0  || i<0 || j >b.gameboard.length)
            return false;
-       return true ;
+
+
+    return true ;
    }
 
 
