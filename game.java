@@ -15,9 +15,13 @@ public class game {
        // System.out.println("entering");
        // System.out.println(newboard.isFull());
         while(!newboard.isFull()){
-         //   System.out.println("entering2");
-            player1.move(newboard);
-            player2.move(newboard);
+
+            player1.move(newboard,1);
+            if(player1.checker(newboard) || newboard.isFull())
+                break;
+            player2.move(newboard,2);
+            if(player2.checker(newboard) )
+                break;
         }
 
     }
@@ -25,8 +29,13 @@ public class game {
     public void humanTocomputer(Human player1 , Computer player2)
     {
         while(!newboard.isFull()){
-            player1.move(newboard);
-            player2.move(newboard);
+
+            player1.move(newboard,1);
+            if(player1.checker(newboard) || newboard.isFull())
+                break;
+            player2.move(newboard,2);
+            if(player2.checker(newboard) )
+                break;
         }
 
     }
