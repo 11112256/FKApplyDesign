@@ -2,16 +2,46 @@ package newGame3X3;
 
 //import Game3X3.Human;
 
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
 public class Controller {
+
+    public enum MOVE {
+
+        PLAYER_1_MOVE(1), PLAYER_2_MOVE(2)   ;
+        private int value;
+
+        private MOVE(int value) {
+            this.value = value;
+        }
+    };
+
+    public enum NUMBER{
+                THREE(3),
+                FOUR(4);
+        private int value;
+       private NUMBER(int value)
+       {
+           this.value = value ;
+       }
+    };
 
     private  Board board;
 
     private Player player1 ;
     private Player player2 ;
 
-    public Controller(int n, Player player1,Player player2)
+    public Controller( Player player1,Player player2)
     {
-        this.board = new Board(n);
+        System.out.println("Enter the dimension of the single cell ");
+        System.out.println("example : 3 for 3X3 , 4 for 4X4");
+        Scanner sc = new Scanner(System.in);
+
+        int cell_size =sc.nextInt();
+        NUMBER.FOUR.value =cell_size;
+   //      NUMBER basic_cell_dimension = new NUMBER(4);
+        this.board = new Board(NUMBER.FOUR.value);
         this.player1= player1 ;
         this.player2 = player2 ;
     }
@@ -45,9 +75,9 @@ public class Controller {
              board.printboard();
 
 
-            while(!board.isFull()){
+            while(!board.isFull()) {
 
-                player1.move(board,1);
+                player1.move ( board , MOVE.PLAYER_1_MOVE.value ) ;
                 if( board.whowins() >0 ) {
                     player1.setStatus("win");
                     player2.setStatus("loss");
@@ -61,7 +91,7 @@ public class Controller {
                     break;
                 }
 
-                player2.move(board,2);
+                player2.move ( board , MOVE.PLAYER_2_MOVE.value );
                 if(board.whowins() >0 )
                 {
                     player2.setStatus("win");

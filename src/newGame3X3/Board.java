@@ -1,6 +1,6 @@
 package newGame3X3;
 
-import Game3X3.board;
+//import Game3X3.board;
 
 public class Board {
 
@@ -77,52 +77,27 @@ public class Board {
 
     public int whowins()
     {
-        if(this.gameBoard.length==3)
-        {
+
             Cell cell =new Cell(this.gameBoard);
             return cell.cellChecker();
-        }
-        // need to implment
-
-
-       else{
-
-           int n = this.gameBoard.length;
-           int j=3 ;
-           for(int i = 0 ;i < n ;i+=3){
-
-               
-
-           }
 
 
 
 
-        }
 
 
 
-       return -2;
     }
 
-    public int whoWins3X3(int ar[][], int i , int j)
-    {
-        int n =ar.length ;
-        int new_ar[][] = new int[3][3];
-        int it=0;
-        int jt=0;
-        for(int i_new = i ; i_new< i+3 ;i_new++)
-        {
-            for(int j_new =j;j_new <j+3 ; j_new++){
-                new_ar[it++][jt++]=ar[i_new][j_new];
-            }
 
 
-        }
-        Cell cell =new Cell(new_ar);
-        return cell.cellChecker();
 
-    }
+
+
+
+
+
+
 
 
 }
